@@ -1,0 +1,18 @@
+:root {
+  --color-main: #D15A60;
+  --color-light: white;
+  --color-dark: #D08FA2;
+  --color-accent: #E8B6C4;
+
+  --font-head: 'Source Sans Pro', sans-serif;
+  --font-body: 'Source Sans Pro', sans-serif;
+
+  --font-size-huge: 8rem;
+  --font-size-headline: 4rem;
+  --font-size-title: 3rem;
+  --font-size-subtitle: 2rem;
+  --font-size-body: 1rem;
+
+  --layout-body-padding: 30px;
+  --layout-body-width: 700px;
+}

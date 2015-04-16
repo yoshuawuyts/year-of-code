@@ -1,0 +1,26 @@
+html, body, a, p {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: 1.5em;
+  color: var(--color-light);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  color: var(--color-light);
+}
+
+h1 {
+  font-size: var(--font-size-headline);
+  line-height: 1.5em;
+}
+
+h2 {
+  font-size: var(--font-size-title);
+  line-height: 1.5em;
+}
+
+h3 {
+  font-size: var(--font-size-subtitle);
+  line-height: 1.5em;
+}

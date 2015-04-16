@@ -1,0 +1,45 @@
+{
+  "name": "proglife",
+  "version": "1.0.0",
+  "description": "proglife",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production ./cli.js build",
+    "dev": "linklocal link -r && linklocal list -r | bulk -c 'npm install --production'",
+    "prepublish": "if [[ $NODE_ENV != 'production' ]]; then npm run dev; fi",
+    "start": "NODE_ENV=development ./cli.js start | opnr | garnish",
+    "test": "standard && NODE_ENV=test node test",
+    "test-cov": "standard && NODE_ENV=test istanbul cover test.js"
+  },
+  "repository": "yoshuawuyts/proglife",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "css-wipe": "^1.0.1"
+  },
+  "devDependencies": {
+    "brick-router": "^2.1.1",
+    "browserify": "^9.0.8",
+    "bulk": "^2.0.0",
+    "cliclopts": "^1.1.0",
+    "garnish": "^2.1.3",
+    "is-stream": "^1.0.1",
+    "istanbul": "^0.3.13",
+    "linklocal": "^2.5.1",
+    "minimist": "^1.1.1",
+    "myth": "^1.4.0",
+    "opnr": "^1.0.4",
+    "rework": "^1.0.1",
+    "rework-npm": "^1.0.0",
+    "server-summary": "^1.0.0",
+    "standard": "^3.6.1",
+    "tape": "^4.0.0",
+    "watchify": "^3.1.2",
+    "wzrd": "^1.2.1"
+  },
+  "files": [
+    "LICENSE",
+    "index.js",
+    "README.md"
+  ]
+}

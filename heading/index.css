@@ -1,0 +1,47 @@
+/**
+ * Heading
+ */
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--layout-body-width);
+  text-align: center;
+}
+
+/**
+ * h1
+ */
+
+.heading > h1 {
+  text-transform: uppercase;
+  font-size: var(--font-size-huge);
+  font-weight: 700;
+  line-height: 1.25em;
+}
+
+/**
+ * p
+ */
+
+.heading > p {
+  display: table;
+  margin: 0 auto;
+  white-space: nowrap;
+  line-height: 0.5em;
+  text-transform: uppercase;
+  font-size: var(--font-size-title);
+}
+
+.heading > p::before, 
+.heading > p::after {
+  display: table-cell;
+  position: relative;
+  top: 0.30em;
+  border-top: 1px solid var(--color-light);
+  width: 45.4%;
+  content: '';
+}
+
+.heading > p::before { right: 7%; }
+.heading > p::after { left: 7%; }
