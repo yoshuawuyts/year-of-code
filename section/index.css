@@ -1,3 +1,5 @@
-.section h1 {
-  font-size: var(--font-size-title);
+.section p,
+.section a {
+  text-align: justify;
+  font-size: var(--font-size-subtitle);
 }
