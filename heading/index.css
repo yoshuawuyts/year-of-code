@@ -1,10 +1,10 @@
 /**
  * Heading
  */
-
 .heading {
   display: flex;
   flex-direction: column;
+  margin-top: 4rem;
   max-width: var(--layout-body-width);
   text-align: center;
 }
@@ -14,10 +14,11 @@
  */
 
 .heading > h1 {
+  margin-top: -0.08em;
   text-transform: uppercase;
   font-size: var(--font-size-huge);
   font-weight: 700;
-  line-height: 1.25em;
+  line-height: 1em;
 }
 
 /**
@@ -28,17 +29,19 @@
   display: table;
   margin: 0 auto;
   white-space: nowrap;
-  line-height: 0.5em;
-  text-transform: uppercase;
+  line-height: 1em;
   font-size: var(--font-size-title);
+  font-family: var(--font-cursive);
+  font-style: italic;
+  opacity: 0.85;
 }
 
 .heading > p::before, 
 .heading > p::after {
   display: table-cell;
   position: relative;
-  top: 0.30em;
-  border-top: 1px solid var(--color-light);
+  top: 0.5em;
+  border-top: 5px double color(var(--color-accent) alpha(0.75));
   width: 45.4%;
   content: '';
 }
