@@ -15,6 +15,7 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
+    "@yoc/plot": "file:plot",
     "css-wipe": "^1.0.1"
   },
   "devDependencies": {
