@@ -1,12 +1,16 @@
+const hyperstream = require('hyperstream')
 const browserify = require('browserify')
+const Remarkable = require('remarkable')
 const brick = require('brick-router')
 const watchify = require('watchify')
+const through = require('through2')
 const npm = require('rework-npm')
 const rework = require('rework')
 const myth = require('myth')
 const path = require('path')
 const fs = require('fs')
 
+const md = new Remarkable()
 const root = path.dirname(require.main.filename)
 const router = brick()
 
@@ -44,7 +48,30 @@ router.on('/bundle.css', function (cb) {
 
 // index.html OR /
 router.on('/index.html', function (cb) {
-  const loc = path.join(__dirname, 'index.html')
-  const stream = fs.createReadStream(loc)
-  cb(null, stream)
+  const htmlloc = path.join(__dirname, 'index.html')
+  const mdloc = path.join(__dirname, 'text.md')
+  const buf = []
+
+  const htmlstream = fs.createReadStream(htmlloc)
+  const mdstream = fs.createReadStream(mdloc)
+
+  const nwmd = mdstream.pipe(through(transform, flush))
+  const hs = hyperstream({'[role="desc-text"]': nwmd})
+
+  const res = htmlstream.pipe(hs)
+  cb(null, res)
+
+  // transform for through
+  // str, str, fn -> null
+  function transform (chunk, enc, icb) {
+    buf.push(chunk)
+    icb()
+  }
+
+  // flush for through
+  // fn -> null
+  function flush (icb) {
+    this.push(md.render(buf.join('\n')))
+    icb()
+  }
 })
