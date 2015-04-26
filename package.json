@@ -12,6 +12,7 @@
     "test-cov": "standard && NODE_ENV=test istanbul cover test.js"
   },
   "repository": "yoshuawuyts/proglife",
+  "private": true,
   "keywords": [],
   "license": "MIT",
   "dependencies": {
