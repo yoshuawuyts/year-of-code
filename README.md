@@ -14,6 +14,8 @@ $ hub clone yoshuawuyts/year-of-code
 
 ## See Also
 - [responsive charts with d3](http://eyeseast.github.io/visible-data/2013/08/28/responsive-charts-with-d3/)
+- [livestream P1](https://www.youtube.com/watch?v=Tf-nNun-bxU)
+- [livestream P2](https://www.youtube.com/watch?v=XH4zJcP_qmA)
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
