@@ -12,6 +12,9 @@ a website a month and an article a month. Great fun, mucho viz!
 $ hub clone yoshuawuyts/year-of-code
 ```
 
+## See Also
+- [responsive charts with d3](http://eyeseast.github.io/visible-data/2013/08/28/responsive-charts-with-d3/)
+
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
 
