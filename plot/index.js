@@ -7,26 +7,39 @@ const data = [
   website('year of code', '2015-05-01')
 ]
 
+// create scale
+const xScale = d3.scale.linear()
+  .domain([0, 52])
+  .range([0, width])
+
+const yScale = d3.scale.linear()
+  .domain([0, 3])
+  .range([0, height])
+
+// main d3 thingy
 var svg = d3.select('body')
   .append('svg')
-  .attr('width', width)
-  .attr('height', height)
+  .attr('class', 'plot')
 
+console.log(svg)
+
+// create dots
 svg.selectAll('circle')
    .data(data)
    .enter()
    .append('circle')
-   .attr('cx', d => d.cx)
-   .attr('cy', d => d.cy)
+   .attr('cx', d => xScale(d.cx))
+   .attr('cy', d => yScale(d.cy))
    .attr('r', 5)
 
+// add labels to dots
 svg.selectAll('text')
   .data(data)
   .enter()
   .append('text')
   .text(d => d.name)
-  .attr('x', d => d.cx)
-  .attr('y', d => d.cy)
+  .attr('x', d => xScale(d.cx))
+  .attr('y', d => yScale(d.cy))
 
 // create a website
 // str, str -> obj
@@ -35,8 +48,8 @@ function website (name, date) {
     type: 'website',
     name: name,
     date: date,
-    cx: 150,
-    cy: 50
+    cx: parseWeek(date),
+    cy: 1
   }
 }
 
@@ -58,3 +71,11 @@ function website (name, date) {
 //     url: 'http://ghub.io/' + name
 //   }
 // }
+
+// get the week from a date
+// str -> num
+function parseWeek (date) {
+  const ret = Number(date.split('-')[1]) - 4
+  console.log(ret)
+  return ret
+}

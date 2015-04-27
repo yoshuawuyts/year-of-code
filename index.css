@@ -5,6 +5,7 @@
 @import './typography';
 @import './section/index';
 @import './heading/index';
+@import './plot/index';
 
 body {
   margin: 0 auto;

@@ -1,0 +1,7 @@
+.plot > circle {
+  fill: var(--color-light);
+}
+
+.plot > text {
+  fill: var(--color-light);
+}
