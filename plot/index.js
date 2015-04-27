@@ -1,13 +1,13 @@
 const d3 = require('d3')
 
 const height = 100
-const width = 300
+const width = 700
+const margin = 40
 
 const data = [
-  website('year of code', '2015-05-01')
+  pt('website', 'year of code', '2015-05-01')
 ]
 
-// create scale
 const xScale = d3.scale.linear()
   .domain([0, 52])
   .range([0, width])
@@ -16,12 +16,28 @@ const yScale = d3.scale.linear()
   .domain([0, 3])
   .range([0, height])
 
-// main d3 thingy
+const x = d3.time.scale()
+  .domain([new Date(2015, 5, 1), new Date(2016, 4, 1)])
+  .range([0, width])
+
+const xAxis = d3.svg.axis()
+  .scale(x)
+  .orient('bottom')
+  .ticks(d3.time.months)
+  .tickSize(16, 0)
+  .tickFormat(d3.time.format('%B'))
+
 var svg = d3.select('body')
   .append('svg')
+  .attr('width', width + margin+ margin)
+  .attr('height', height + margin+ margin)
   .attr('class', 'plot')
 
-console.log(svg)
+// create x axis
+svg.append('g')
+  .attr('transform', 'translate(0,' + height + ')')
+  .attr('class', 'plot-x-axis')
+  .call(xAxis)
 
 // create dots
 svg.selectAll('circle')
@@ -41,11 +57,11 @@ svg.selectAll('text')
   .attr('x', d => xScale(d.cx))
   .attr('y', d => yScale(d.cy))
 
-// create a website
-// str, str -> obj
-function website (name, date) {
+// create a data point
+// str, str, str -> obj
+function pt (type, name, date) {
   return {
-    type: 'website',
+    type: type,
     name: name,
     date: date,
     cx: parseWeek(date),
@@ -53,29 +69,8 @@ function website (name, date) {
   }
 }
 
-// create an article
-// str, str -> obj
-// function art (name, date) {
-//   return {
-//     name: name,
-//     date: date
-//   }
-// }
-
-// create a module
-// str, str -> obj
-// function module (name, date) {
-//   return {
-//     name: name,
-//     date: date,
-//     url: 'http://ghub.io/' + name
-//   }
-// }
-
 // get the week from a date
 // str -> num
 function parseWeek (date) {
-  const ret = Number(date.split('-')[1]) - 4
-  console.log(ret)
-  return ret
+  return Number(date.split('-')[1]) - 4
 }
