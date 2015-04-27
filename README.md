@@ -17,4 +17,5 @@ $ hub clone yoshuawuyts/year-of-code
 
 [travis-image]: https://img.shields.io/travis/yoshuawuyts/year-of-code.svg?style=flat-square
 [travis-url]: https://travis-ci.org/yoshuawuyts/year-of-code
+[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [standard-url]: https://github.com/feross/standard
