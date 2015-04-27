@@ -1,4 +1,4 @@
-# proglife
+# year-of-code
 [![build status][travis-image]][travis-url]
 [![js-standard-style][standard-image]][standard-url]
 
@@ -15,6 +15,6 @@ $ hub clone yoshuawuyts/year-of-code
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
 
-[travis-image]: https://img.shields.io/travis/yoshuawuyts/proglife.svg?style=flat-square
-[travis-url]: https://travis-ci.org/yoshuawuyts/proglife
+[travis-image]: https://img.shields.io/travis/yoshuawuyts/year-of-code.svg?style=flat-square
+[travis-url]: https://travis-ci.org/yoshuawuyts/year-of-code
 [standard-url]: https://github.com/feross/standard
