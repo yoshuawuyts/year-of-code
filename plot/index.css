@@ -2,6 +2,6 @@
   fill: var(--color-light);
 }
 
-.plot > text {
+.plot text {
   fill: var(--color-light);
 }

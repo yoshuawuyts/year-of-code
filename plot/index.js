@@ -1,11 +1,12 @@
 const d3 = require('d3')
 
-const height = 100
-const width = 700
-const margin = 40
+const margin = 20
+const height = 300 - margin * 2
+const width = 700 - margin * 2
 
 const data = [
-  pt('website', 'year of code', '2015-05-01')
+  pt('website', 'year-of-code', '2015-05-01'),
+  pt('module', 'from2-string', '2015-04-29')
 ]
 
 const xScale = d3.scale.linear()
@@ -17,7 +18,7 @@ const yScale = d3.scale.linear()
   .range([0, height])
 
 const x = d3.time.scale()
-  .domain([new Date(2015, 5, 1), new Date(2016, 4, 1)])
+  .domain([new Date(2015, 4, 1), new Date(2016, 3, 1)])
   .range([0, width])
 
 const xAxis = d3.svg.axis()
@@ -25,17 +26,19 @@ const xAxis = d3.svg.axis()
   .orient('bottom')
   .ticks(d3.time.months)
   .tickSize(16, 0)
-  .tickFormat(d3.time.format('%B'))
+  .tickFormat(d3.time.format('%b'))
 
 var svg = d3.select('body')
   .append('svg')
-  .attr('width', width + margin+ margin)
-  .attr('height', height + margin+ margin)
+  .attr('width', width + margin * 2)
+  .attr('height', height + margin * 2)
+  .append('g')
+  .attr('transform', 'translate(' + margin + ',' + margin + ')')
   .attr('class', 'plot')
 
 // create x axis
 svg.append('g')
-  .attr('transform', 'translate(0,' + height + ')')
+  .attr('transform', 'translate(0,' + (height - margin * 2) + ')')
   .attr('class', 'plot-x-axis')
   .call(xAxis)
 
@@ -65,12 +68,21 @@ function pt (type, name, date) {
     name: name,
     date: date,
     cx: parseWeek(date),
-    cy: 1
+    cy: typeIndex(type)
   }
 }
 
-// get the week from a date
+// get the relative week from a date
+// example: 2015-07-19 => 02
 // str -> num
 function parseWeek (date) {
-  return Number(date.split('-')[1]) - 4
+  return Number(date.split('-')[1]) - 5
+}
+
+// return a y index for a type
+// str -> num
+function typeIndex (str) {
+  if (str === 'website') return 1
+  if (str === 'module') return 2
+  if (str === 'article') return 3
 }
