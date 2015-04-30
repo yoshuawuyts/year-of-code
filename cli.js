@@ -29,7 +29,13 @@ if (argv.help || !cmd) {
 }
 
 // listen
-if (cmd === 'start') server().listen(argv.port, summary)
+if (cmd === 'start') {
+  server().listen(argv.port, function () {
+    const addr = 'localhost:' + this.address().port
+    console.log(JSON.stringify({ type: 'connect', url: addr }))
+    summary.call(this)
+  })
+}
 
 // build
 if (cmd === 'build') {
