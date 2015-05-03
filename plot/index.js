@@ -1,12 +1,17 @@
+const d3Tip = require('d3-tip')
 const d3 = require('d3')
 
-const margin = 20
-const height = 300 - margin * 2
-const width = 700 - margin * 2
+const d3tip = d3Tip(d3)
+
+const marginY = 80
+const marginX = 20
+const height = 300 - marginY * 2
+const width = 700 - marginX * 2
 
 const data = [
-  pt('website', 'year-of-code', '2015-05-01'),
-  pt('module', 'from2-string', '2015-04-29')
+  pt('website', 'year-of-code', 'yoshuawuyts.github.io/year-of-code', '2015-05-04'),
+  pt('module', 'from2-string','https://github.com/yoshuawuyts/from2-string', '2015-04-29'),
+  pt('post', 'Party tricks with ES6 symbols', 'https://medium.com/code-ops/party-tricks-with-es6-symbols-ee328fdb6c4b', '2015-04-30'),
 ]
 
 const xScale = d3.scale.linear()
@@ -14,7 +19,7 @@ const xScale = d3.scale.linear()
   .range([0, width])
 
 const yScale = d3.scale.linear()
-  .domain([0, 3])
+  .domain([0, 2])
   .range([0, height])
 
 const x = d3.time.scale()
@@ -28,17 +33,23 @@ const xAxis = d3.svg.axis()
   .tickSize(16, 0)
   .tickFormat(d3.time.format('%b'))
 
-var svg = d3.select('[role="plot"]')
+const tip = d3tip()
+  .attr('class', 'plot-tip')
+  .html(d => '<span>' + d.name + '</span>')
+
+const svg = d3.select('[role="plot"]')
   .append('svg')
-  .attr('width', width + margin * 2)
-  .attr('height', height + margin * 2)
+  .attr('height', height + marginY * 2)
+  .attr('width', width + marginX * 2)
   .append('g')
-  .attr('transform', 'translate(' + margin + ',' + margin + ')')
+  .attr('transform', 'translate(' + marginX + ',' + marginY + ')')
   .attr('class', 'plot')
+
+svg.call(tip)
 
 // create x axis
 svg.append('g')
-  .attr('transform', 'translate(0,' + (height - margin * 2) + ')')
+  .attr('transform', 'translate(0,' + (height + 20) + ')')
   .attr('class', 'plot-x-axis')
   .call(xAxis)
 
@@ -49,7 +60,9 @@ svg.selectAll('circle')
    .append('circle')
    .attr('cx', d => xScale(d.cx))
    .attr('cy', d => yScale(d.cy))
-   .attr('r', 5)
+   .attr('r', 7)
+   .on('mouseover', tip.show)
+   .on('mouseout', tip.hide)
 
 // add labels to dots
 svg.selectAll('text')
@@ -62,11 +75,12 @@ svg.selectAll('text')
 
 // create a data point
 // str, str, str -> obj
-function pt (type, name, date) {
+function pt (type, name, uri, date) {
   return {
     type: type,
     name: name,
     date: date,
+    uri: uri,
     cx: parseWeek(date),
     cy: typeIndex(type)
   }
@@ -82,7 +96,7 @@ function parseWeek (date) {
 // return a y index for a type
 // str -> num
 function typeIndex (str) {
-  if (str === 'website') return 1
-  if (str === 'module') return 2
-  if (str === 'article') return 3
+  if (str === 'website') return 0
+  if (str === 'module') return 1
+  if (str === 'post') return 2
 }

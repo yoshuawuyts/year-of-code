@@ -16,9 +16,10 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "@yoc/plot": "file:plot",
     "@yoc/footer": "file:footer",
-    "css-wipe": "^1.0.1"
+    "@yoc/plot": "file:plot",
+    "css-wipe": "^1.0.1",
+    "d3-tip": "^0.6.7"
   },
   "devDependencies": {
     "brick-router": "^2.1.1",
