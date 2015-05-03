@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@yoc/plot": "file:plot",
+    "@yoc/footer": "file:footer",
     "css-wipe": "^1.0.1"
   },
   "devDependencies": {

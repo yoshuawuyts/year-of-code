@@ -6,6 +6,7 @@
 @import './section/index';
 @import './heading/index';
 @import './plot/index';
+@import './footer/index';
 
 body {
   margin: 0 auto;

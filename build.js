@@ -50,13 +50,18 @@ router.on('/bundle.css', function (cb) {
 router.on('/index.html', function (cb) {
   const htmlloc = path.join(__dirname, 'index.html')
   const mdloc = path.join(__dirname, 'text.md')
+  const footerloc = require.resolve('@yoc/footer/index.html')
   const buf = []
 
+  const footerstream = fs.createReadStream(footerloc)
   const htmlstream = fs.createReadStream(htmlloc)
   const mdstream = fs.createReadStream(mdloc)
 
   const nwmd = mdstream.pipe(through(transform, flush))
-  const hs = hyperstream({'[role="desc-text"]': nwmd})
+  const hs = hyperstream({
+    '[role="desc-text"]': nwmd,
+    'footer': footerstream
+  })
 
   const res = htmlstream.pipe(hs)
   cb(null, res)

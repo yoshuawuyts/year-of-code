@@ -28,7 +28,7 @@ const xAxis = d3.svg.axis()
   .tickSize(16, 0)
   .tickFormat(d3.time.format('%b'))
 
-var svg = d3.select('body')
+var svg = d3.select('[role="plot"]')
   .append('svg')
   .attr('width', width + margin * 2)
   .attr('height', height + margin * 2)
