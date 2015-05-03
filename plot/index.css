@@ -1,7 +1,9 @@
 .plot > circle {
   fill: var(--color-light);
+  cursor: pointer;
 }
 
-.plot text {
+.plot text,
+.plot-tip {
   fill: var(--color-light);
 }
