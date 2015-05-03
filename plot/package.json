@@ -8,6 +8,7 @@
   },
   "browserify": {
     "transform": [
+      "brfs",
       "babelify"
     ]
   },

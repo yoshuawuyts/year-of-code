@@ -19,9 +19,12 @@
     "@yoc/footer": "file:footer",
     "@yoc/plot": "file:plot",
     "css-wipe": "^1.0.1",
-    "d3-tip": "^0.6.7"
+    "csv-parser": "^1.5.2",
+    "d3-tip": "^0.6.7",
+    "from2-string": "^1.0.2"
   },
   "devDependencies": {
+    "brfs": "^1.4.0",
     "brick-router": "^2.1.1",
     "browserify": "^9.0.8",
     "bulk": "^2.0.0",
