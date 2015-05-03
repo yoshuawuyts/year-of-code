@@ -9,7 +9,7 @@ const height = 300 - marginY * 2
 const width = 700 - marginX * 2
 
 const data = [
-  pt('website', 'year-of-code', 'yoshuawuyts.github.io/year-of-code', '2015-05-04'),
+  pt('website', 'year-of-code', 'https://yoshuawuyts.github.io/year-of-code', '2015-05-04'),
   pt('module', 'from2-string','https://github.com/yoshuawuyts/from2-string', '2015-04-29'),
   pt('post', 'Party tricks with ES6 symbols', 'https://medium.com/code-ops/party-tricks-with-es6-symbols-ee328fdb6c4b', '2015-04-30'),
 ]
@@ -63,6 +63,7 @@ svg.selectAll('circle')
    .attr('r', 7)
    .on('mouseover', tip.show)
    .on('mouseout', tip.hide)
+   .on('click', d => window.open(d.uri))
 
 // add labels to dots
 svg.selectAll('text')
