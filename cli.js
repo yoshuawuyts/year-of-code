@@ -39,7 +39,7 @@ if (cmd === 'start') {
 
 // build
 if (cmd === 'build') {
-  router.build(__dirname + '/build', function (err, res) {
+  router.build(__dirname, function (err, res) {
     if (err) {
       console.log('error:', err)
       process.exit(1)
