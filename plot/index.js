@@ -7,10 +7,11 @@ const fs = require('fs')
 
 const d3tip = d3Tip(d3)
 
-const marginY = 80
+const marginY = 60
 const marginX = 20
-const height = 300 - marginY * 2
+const height = 220 - marginY * 2
 const width = 700 - marginX * 2
+const circleR = 5
 
 const file = fs.readFileSync(path.join(__dirname, 'data.csv'), 'utf8')
 const data = []
@@ -20,6 +21,7 @@ fromString(file)
   .on('end', createPlot)
 
 // create svg elements
+// null -> null
 function createPlot () {
   const xScale = d3.scale.linear()
     .domain([0, 52])
@@ -67,7 +69,7 @@ function createPlot () {
      .append('circle')
      .attr('cx', d => xScale(d.cx))
      .attr('cy', d => yScale(d.cy))
-     .attr('r', 7)
+     .attr('r', circleR)
      .on('mouseover', tip.show)
      .on('mouseout', tip.hide)
      .on('click', d => window.open(d.uri))

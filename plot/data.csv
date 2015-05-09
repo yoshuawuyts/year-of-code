@@ -1,4 +1,5 @@
 type,name,uri,date
-website,year-of-code,https://yoshuawuyts.github.io/year-of-code,2015-05-04
-module,from2-string,https://github.com/yoshuawuyts/from2-string,2015-04-29
-post,Party tricks with ES6 symbols,https://medium.com/code-ops/party-tricks-with-es6-symbols-ee328fdb6c4b,2015-04-30
+website, year-of-code, https://yoshuawuyts.github.io/year-of-code, 2015-05-04
+module, from2-string, https://github.com/yoshuawuyts/from2-string, 2015-04-29
+post, Party tricks with ES6 symbols, https://medium.com/code-ops/party-tricks-with-es6-symbols-ee328fdb6c4b,2015-04-30
+module, brick-server, http://github.com/yoshuawuyts/brick-server, 2015-05-09
