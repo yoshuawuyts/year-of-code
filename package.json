@@ -16,6 +16,7 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
+    "@yoc/analytics": "file:analytics",
     "@yoc/footer": "file:footer",
     "@yoc/plot": "file:plot",
     "css-wipe": "^1.0.1",
