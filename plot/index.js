@@ -11,7 +11,8 @@ const marginY = 60
 const marginX = 20
 const height = 220 - marginY * 2
 const width = 700 - marginX * 2
-const circleR = 5
+const circleR = 4
+const startDay = getYearDay('2015-05-01')
 
 const file = fs.readFileSync(path.join(__dirname, 'data.csv'), 'utf8')
 const data = []
@@ -24,7 +25,7 @@ fromString(file)
 // null -> null
 function createPlot () {
   const xScale = d3.scale.linear()
-    .domain([0, 52])
+    .domain([0, 365])
     .range([0, width])
 
   const yScale = d3.scale.linear()
@@ -87,16 +88,19 @@ function createPlot () {
 // create a data point
 // obj -> obj
 function pt (dat) {
-  dat.cx = parseWeek(dat.date)
+  dat.cx = getYearDay(dat.date) - startDay
   dat.cy = typeIndex(dat.type)
   return dat
 }
 
-// get the relative week from a date
-// example: 2015-07-19 => 02
+// approxmiate the day of the year
+// example: 2015-07-19 => 232
 // str -> num
-function parseWeek (date) {
-  return Number(date.split('-')[1]) - 5
+function getYearDay (date) {
+  const arr = date.split('-')
+  const month = Number(arr[1]) * 30.5
+  const day = Number(arr[2])
+  return ~~(month + day)
 }
 
 // return a y index for a type
