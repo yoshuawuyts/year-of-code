@@ -48,7 +48,7 @@ router.on('/bundle.css', function (cb) {
 
 // index.html OR /
 router.on('/index.html', function (cb) {
-  const htmlloc = path.join(__dirname, 'index.html')
+  const htmlloc = path.join(__dirname, 'html/index.html')
   const mdloc = path.join(__dirname, 'text.md')
   const footerloc = require.resolve('@yoc/footer/index.html')
   const buf = []
