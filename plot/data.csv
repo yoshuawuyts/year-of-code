@@ -4,3 +4,4 @@ module, from2-string, https://github.com/yoshuawuyts/from2-string, 2015-04-29
 post, Party tricks with ES6 symbols, https://medium.com/code-ops/party-tricks-with-es6-symbols-ee328fdb6c4b, 2015-04-30
 module, brick-server, http://github.com/yoshuawuyts/brick-server, 2015-05-09
 module, fsm-event, http://github.com/yoshuawuyts/fsm-event, 2015-05-14
+module, assert-npm-version, http://github.com/yoshuawuyts/assert-npm-version, 2015-06-09
