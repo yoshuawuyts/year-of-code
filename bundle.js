@@ -48,7 +48,7 @@ var width = 700 - marginX * 2;
 var circleR = 4;
 var startDay = getYearDay('2015-05-01');
 
-var file = 'type,name,uri,date\nwebsite, year-of-code, https://yoshuawuyts.github.io/year-of-code, 2015-06-01\nmodule, from2-string, https://github.com/yoshuawuyts/from2-string, 2015-04-29\npost, Party tricks with ES6 symbols, https://medium.com/code-ops/party-tricks-with-es6-symbols-ee328fdb6c4b, 2015-04-30\nmodule, brick-server, http://github.com/yoshuawuyts/brick-server, 2015-05-09\nmodule, fsm-event, http://github.com/yoshuawuyts/fsm-event, 2015-05-14\nmodule, assert-npm-version, http://github.com/yoshuawuyts/assert-npm-version, 2015-06-09\nmodule, wayfarer@4.0.0, http://github.com/yoshuawuyts/wayfarer, 2015-06-15\n';
+var file = 'type,name,uri,date\nwebsite, year-of-code, https://yoshuawuyts.github.io/year-of-code, 2015-06-01\nmodule, from2-string, https://github.com/yoshuawuyts/from2-string, 2015-04-29\npost, Party tricks with ES6 symbols, https://medium.com/code-ops/party-tricks-with-es6-symbols-ee328fdb6c4b, 2015-04-30\nmodule, brick-server, http://github.com/yoshuawuyts/brick-server, 2015-05-09\nmodule, fsm-event, http://github.com/yoshuawuyts/fsm-event, 2015-05-14\nmodule, assert-npm-version, http://github.com/yoshuawuyts/assert-npm-version, 2015-06-09\nmodule, wayfarer@4.0.0, http://github.com/yoshuawuyts/wayfarer, 2015-06-15\npost, compact comments, https://github.com/yoshuawuyts/blog/blob/master/2015-06-17-compact-comments.md, 2015-06-17\n';
 var data = [];
 fromString(file).pipe(csv()).on('data', function (d) {
   return data.push(pt(d));
