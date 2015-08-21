@@ -11,3 +11,10 @@ module, ergonomic-viewport, https://github.com/yoshuawuyts/ergonomic-viewport, 2
 module, ergonomic-breakpoint, https://github.com/yoshuawuyts/ergonomic-breakpoint, 2015-06-23
 module, pushup-sequence, https://github.com/yoshuawuyts/pushup-sequence, 2015-06-27
 module, get-anchor, https://github.com/yoshuawuyts/get-anchor, 2015-06-30
+module, man-n, https://github.com/man-n/man-n, 2015-07-06
+module, barracks@5.0.0, https://github.com/yoshuawuyts/barracks, 2015-07-14
+module, methodist, https://github.com/yoshuawuyts/methodist, 2015-07-27
+module, create-fsa, https://github.com/yoshuawuyts/create-fsa, 2015-07-29
+post, streams, https://github.com/yoshuawuyts/knowledge/blob/master/streams.md, 2015-08-04
+post, browserify, https://github.com/yoshuawuyts/knowledge/blob/master/browserify.md, 2015-08-06
+website, yoshuawuyts.com, http://yoshuawuyts.com/, 2015-08-21
