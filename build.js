@@ -40,7 +40,7 @@ router.on('/bundle.css', function (cb) {
         .use(myth({source: route}))
         .toString()
       cb(null, res)
-    } catch(e) {
+    } catch (e) {
       cb(e)
     }
   })
